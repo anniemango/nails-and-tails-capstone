@@ -457,3 +457,22 @@ thead th {
 tbody th {
     background: var(--color-backdrop);
 }
+
+.visit-flow {
+  display: block;
+}
+.visit-flow rect {
+  fill: var(--color-surface);
+  stroke: var(--color-text-dark);
+  stroke-width: 2;
+}
+.visit-flow text {
+  fill: var(--color-text-dark);
+  font-family: var(--font-body);
+  font-size: 16px;
+  text-anchor: middle;
+}
+.visit-flow path {
+  stroke: var(--color-text-dark);
+  stroke-width: 2;
+}
