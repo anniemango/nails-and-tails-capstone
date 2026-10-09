@@ -255,7 +255,7 @@ article p{
     color:var(--color-text-light);
 }
 .eyebrow{
-    color:var(--color-accent);
+    color:var(--color-backdrop);
     font-weight:700;
 }
 .lede{
@@ -265,7 +265,7 @@ article p{
 .figure-credit{
     padding:.5rem;
     font-size:var(--size-data);
-    color:var(--color-text-data);
+    color:var(--color-text-dark);
 }
 article{
     min-width:0;
