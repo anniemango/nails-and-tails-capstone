@@ -224,8 +224,10 @@ main {
     outline-offset:.2rem;
 }
 
-html{
-    scroll-behavior:smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 .feature{
