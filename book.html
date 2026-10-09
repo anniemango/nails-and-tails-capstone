@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Book a Visit | Nails and Tails</title>
+    <meta name="description" content="Request a grooming appointment. We reply within one business day." />
+    <link rel="stylesheet" href="https://use.typekit.net/msn8lcj.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/navigation.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html">Nails and Tails</a>
+      <nav aria-label="Primary navigation">
+        <button
+          class="menu-button"
+          type="button"
+          aria-controls="primary-nav"
+          aria-expanded="false"
+          hidden
+        >
+          Menu
+        </button>
+        <ul class="nav-list" id="primary-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="guide.html">Nail Care Guide</a></li>
+          <li><a href="book.html" aria-current="page">Book a Visit</a></li>
+          <li><a href="visit.html">Visit and Support</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="main">
+      <h1>Booking a Dog Grooming Appointment</h1>
+      <p class="lede">
+        New and returning clients can request a grooming appointment for one
+        dog. It takes about two minutes. We reply within one business day to
+        confirm.
+      </p>
+      <section id="expectations">
+        <h2>Before you start</h2>
+        <p>
+          Required fields are marked "(required)" in their label. Everything
+          else is optional and you can leave it blank.
+        </p>
+        <p>
+          We only ask for what we need to hold the appointment and reach you
+          about it. We do not ask for your address, your dog's medical records,
+          or payment details.
+        </p>
+      </section>
+      <section id="validation">
+        <h2>What the form checks</h2>
+        <p>
+          What the form checks before it will send, and what it deliberately
+          leaves alone.
+        </p>
+        <ul>
+          <li>
+            <strong>You must fill in</strong> your first name, email address,
+            your dog's name and size, the service, a preferred date, and a time
+            window.
+          </li>
+          <li>
+            <strong>Email</strong> is checked for format validity. Example:
+            name@example.com
+          </li>
+          <li>
+            <strong>Preferred date</strong> takes any day from 13 October 2026 to
+            9 January 2027.
+          </li>
+          <li>
+            <strong>Length limits</strong> are 40 characters for the name fields
+            and 500 for the notes box.
+          </li>
+          <li>
+            <strong>No rigid patterns.</strong> Names hold apostrophes, hyphens,
+            spaces and letters from any alphabet, so a pattern would only turn
+            real people away. No phone number is asked for at all.
+          </li>
+        </ul>
+      </section>
+      <form action="#" method="get">
+        <fieldset>
+          <legend>Your details</legend>
+          <div class="paired-fields">
+            <div class="field">
+              <label for="first-name">First name (required)</label>
+              <input
+                id="first-name"
+                name="first_name"
+                type="text"
+                maxlength="40"
+                autocomplete="given-name"
+                required>
+            </div>
+            <div class="field">
+              <label for="last-name">Last name</label>
+              <p class="help" id="last-name-help">
+                Optional. Leave this empty if you go by one name.
+              </p>
+              <input
+                id="last-name"
+                name="last_name"
+                type="text"
+                maxlength="40"
+                autocomplete="family-name"
+                aria-describedby="last-name-help">
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">Email address (required)</label>
+            <p class="help" id="email-help">
+              We send your confirmation here. Format: name@example.com
+            </p>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              inputmode="email"
+              aria-describedby="email-help"
+              required>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Your dog's details</legend>
+          <div class="field">
+            <label for="dog-name">Dog's name (required)</label>
+            <input
+              id="dog-name"
+              name="dog_name"
+              type="text"
+              maxlength="40"
+              autocomplete="off"
+              required>
+          </div>
+          <fieldset>
+            <legend>Size (required)</legend>
+            <label class="choice">
+              <input type="radio" name="dog_size" value="small" required>
+              Small (under 25 lb)
+            </label>
+            <label class="choice">
+              <input type="radio" name="dog_size" value="medium" required>
+              Medium (25&ndash;60 lb)
+            </label>
+            <label class="choice">
+              <input type="radio" name="dog_size" value="large" required>
+              Large (over 60 lb)
+            </label>
+          </fieldset>
+        </fieldset>
+        <fieldset>
+          <legend>The appointment</legend>
+          <div class="field">
+            <label for="service">Service (required)</label>
+            <select id="service" name="service" required>
+              <option value="">Choose a service</option>
+              <option value="full-groom-nails">Full Grooming and a Full Nail Set for you</option>
+              <option value="full-groom">Full Grooming (about 2 hours)</option>
+              <option value="puppy-nail-trim">Puppy Nail Trimming (about 15 minutes)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="preferred-date">Preferred date (required)</label>
+            <p class="help" id="preferred-date-help">
+              We book up to three months ahead, from 13 October 2026 to 9 January
+              2027.
+            </p>
+            <input
+              id="preferred-date"
+              name="preferred_date"
+              type="date"
+              min="2026-10-13"
+              max="2027-01-09"
+              aria-describedby="preferred-date-help"
+              required>
+          </div>
+          <fieldset>
+            <legend>Time window (required)</legend>
+            <label class="choice">
+              <input type="radio" name="time_window" value="morning" required>
+              Morning (8am&ndash;12pm)
+            </label>
+            <label class="choice">
+              <input
+                type="radio"
+                name="time_window"
+                value="afternoon"
+                required>
+              Afternoon (12pm&ndash;5pm)
+            </label>
+            <label class="choice">
+              <input type="radio" name="time_window" value="either" required>
+              Either works
+            </label>
+          </fieldset>
+          <div class="field">
+            <label for="notes">Notes for the groomer</label>
+            <p class="help" id="notes-help">
+              Optional. Anything that helps the visit go well. Up to 500
+              characters.
+            </p>
+            <textarea
+              id="notes"
+              name="notes"
+              maxlength="500"
+              aria-describedby="notes-help"
+            ></textarea>
+          </div>
+        </fieldset>
+        <button type="submit">Request this appointment</button>
+      </form>
+    </main>
+    <footer>
+      <p>
+        Open Tuesday to Saturday ·
+        <a href="visit.html#hours">Hours and location</a>
+      </p>
+      <p>&copy; 2026 Nails and Tails</p>
+    </footer>
+  </body>
+</html>
