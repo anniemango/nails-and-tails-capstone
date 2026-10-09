@@ -77,6 +77,10 @@ textarea {
   --layer-raised: 10;
   --layer-sticky: 20;
   --layer-overlay: 30;
+
+  /* status */
+  --success: #1e6b3f;
+  --success-tint: #e8f5ec;
 }
 * {
   box-sizing: border-box;
@@ -475,4 +479,78 @@ tbody th {
 .visit-flow path {
   stroke: var(--color-text-dark);
   stroke-width: 2;
+}
+
+.action {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  color: var(--color-text-light);
+  font-weight: 700;
+  text-decoration: none;
+  background-color: var(--color-action);
+  background-image: linear-gradient(135deg, var(--color-action), var(--color-action-hover));
+  box-shadow: var(--elevation-low);
+  transition: transform 150ms ease-out, box-shadow 150ms ease-out;
+}
+.action::after {
+  content: "";
+  display: inline-block;
+  width: 0.45em;
+  height: 0.45em;
+  margin-left: 0.6em;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: translateY(-0.1em) rotate(45deg);
+  transition: transform 150ms ease-out;
+}
+.action:hover {
+  box-shadow: var(--elevation-high);
+  text-decoration: underline;
+}
+.action:hover::after,
+.action:focus-visible::after {
+  transform: translate(0.2em, -0.1em) rotate(45deg);
+}
+.action:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+  text-decoration: underline;
+}
+.action:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+.confirmation {
+  margin-top: 0.75rem;
+  padding: 1rem;
+  border-left: 0.4rem solid var(--success);
+  background-color: var(--success-tint);
+}
+.confirmation strong {
+  color: var(--success);
+}
+.action:active {
+  filter: brightness(0.9);
+}
+
+#received:not(:target) {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .action {
+    transition: box-shadow 150ms ease-out;
+  }
+  .action::after {
+    transition: none;
+  }
+  .action:active {
+    transform: none;
+  }
+  .action:hover::after,
+  .action:focus-visible::after {
+    transform: translateY(-0.1em) rotate(45deg);
+  }
 }
