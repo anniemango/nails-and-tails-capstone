@@ -1,0 +1,210 @@
+/* included to make width and height calculations predictable across all elements*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* font and color set to inherit on button, input, select and textarea. */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:root {
+  /* typography: tomarik fonts load from Adobe Fonts; the fallbacks keep the page readable offline */
+  --font-body: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "tomarik-serif", Georgia, "Times New Roman", serif;
+  --font-heading: "tomarik-introvert", -apple-system, "Segoe UI", Roboto,
+    sans-serif;
+  --base-size: 1rem;
+  --line-height: 1.5;
+  --measure: clamp(45ch, 60vw, 90ch);
+  --size-h1: 2rem;
+  --size-h2: 1.5rem;
+  --size-h3: 1.25rem;
+  --size-data: 0.8rem;
+
+  /* colors */
+  --color-backdrop: #fff8dd;
+  --color-main: #f8c36c;
+  --color-accent: #ff879f;
+  --color-text-light: #fffcf6;
+  --color-text-dark: #161624;
+  --color-text-data: #6b6b7a;
+  --color-link: #b5335f;
+  --color-link-hover: #872647;
+  --color-link-active: #5f1b32;
+
+  /* semantic theme roles */
+  --color-surface: #fffcf6;
+  --color-border: #6b6b7a;
+  --color-action: #d50148;
+  --color-action-hover: #ad013a;
+  --color-on-accent: #161624;
+  --color-focus: #b5335f;
+
+  /* spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --gutter: var(--space-md);
+
+  /* radius and elevation */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-full: 999px;
+  --elevation-low: 0 1px 2px #00000014;
+  --elevation-high: 0 4px 12px #0000001f;
+
+  /* layout: 2.75rem = 44px minimum touch target (Module 3 --target-min, now in rem) */
+  --target-min: 2.75rem;
+  --max: 70rem;
+
+  /* line widths */
+  --border-width: 0.125rem;
+  --focus-width: 0.2rem;
+  --focus-offset: 0.15rem;
+  --current-bar: 0.4rem;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  color: var(--color-text-dark);
+  background: var(--color-backdrop);
+  font-family: var(--font-body);
+  font-size: var(--base-size);
+  line-height: var(--line-height);
+}
+h1 {
+  font-family: var(--font-display);
+  font-size: var(--size-h1);
+}
+h2 {
+  font-family: var(--font-heading);
+  font-size: var(--size-h2);
+}
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -6rem;
+  z-index: 20;
+  background: var(--color-surface);
+  color: var(--color-text-dark);
+  padding: 0.75rem;
+}
+.skip-link:focus {
+  top: 0.5rem;
+}
+.site-header {
+  background: var(--color-main);
+  color: var(--color-text-dark);
+  padding: var(--space-md);
+}
+.brand {
+  color: inherit;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.menu-button {
+  min-width: var(--target-min);
+  min-height: var(--target-min);
+  padding: var(--space-sm) var(--space-md);
+  border: var(--border-width) solid var(--color-text-dark);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text-dark);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.menu-button:focus-visible {
+  outline: var(--focus-width) solid var(--color-focus);
+  outline-offset: var(--focus-offset);
+}
+.nav-list {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+.nav-list a {
+  display: block;
+  color: var(--color-text-dark);
+  padding: 0.75rem;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.nav-list a:hover {
+  background: var(--color-surface);
+  text-decoration: underline;
+  text-decoration-thickness: var(--border-width);
+  text-underline-offset: 0.25em;
+}
+.menu-button:hover {
+  background: var(--color-accent);
+}
+.nav-list a:active,
+.menu-button:active {
+  background: var(--color-action);
+  color: var(--color-text-light);
+}
+.nav-list a:focus-visible {
+  outline: var(--focus-width) solid var(--color-focus);
+  outline-offset: var(--focus-offset);
+}
+.nav-list a[aria-current="page"] {
+  font-weight: 700;
+  border-inline-start: var(--current-bar) solid var(--color-action);
+}
+.js .nav-list[data-open="false"] {
+  display: none;
+}
+main,
+footer {
+  width: min(100% - 2rem, var(--max));
+  margin-inline: auto;
+}
+main {
+  min-height: 55vh;
+  padding-block: 2rem;
+}
+/* Breakpoint: at 703px Nails and Tails began wrapping as the links collapsed. 44em (704px) fixes this */
+@media (min-width: 44em) {
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+  .brand {
+    flex-shrink: 0;
+  }
+  .js .menu-button {
+    display: none;
+  }
+  .nav-list,
+  .js .nav-list[data-open] {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin: 0;
+  }
+  .nav-list a {
+    white-space: nowrap;
+  }
+  .nav-list a[aria-current="page"] {
+    border-inline-start: 0;
+    border-block-end: var(--current-bar) solid var(--color-action);
+  }
+}
