@@ -466,6 +466,8 @@ tbody th {
 
 .visit-flow {
   display: block;
+  max-width: 24rem;
+  margin-inline: auto;
 }
 .visit-flow rect {
   fill: var(--color-surface);
